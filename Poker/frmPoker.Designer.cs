@@ -207,7 +207,8 @@
             // 
             // cmbPokerType
             // 
-            this.cmbPokerType.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmbPokerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPokerType.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmbPokerType.FormattingEnabled = true;
             this.cmbPokerType.Items.AddRange(new object[] {
             "同花順",
@@ -221,7 +222,7 @@
             "雜牌"});
             this.cmbPokerType.Location = new System.Drawing.Point(1339, 298);
             this.cmbPokerType.Name = "cmbPokerType";
-            this.cmbPokerType.Size = new System.Drawing.Size(231, 32);
+            this.cmbPokerType.Size = new System.Drawing.Size(231, 40);
             this.cmbPokerType.TabIndex = 10;
             // 
             // restart
