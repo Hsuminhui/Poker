@@ -75,11 +75,12 @@ User Interface:
 功能區圖示:
 <img width="598" height="74" alt="image" src="https://github.com/user-attachments/assets/b6459f85-d7c9-4262-a6c7-f6a47d6c4993" />
 
+注意事項:
 
-> 1. 當押注金額大於目前金額，將會跳出錯誤視窗
+> 當押注金額大於目前金額，將會跳出錯誤視窗
    <img width="127" height="103" alt="image" src="https://github.com/user-attachments/assets/eb8aecf1-7b00-4f2e-bdc9-8356e68986ce" />
 
-> 2. 若尚未進行押注就執行發牌功能，會跳出提醒視窗
+> 若尚未進行押注就執行發牌功能，會跳出提醒視窗
    <img width="101" height="103" alt="image" src="https://github.com/user-attachments/assets/8c822883-700c-4aaa-95ab-ff73f179c635" />
 
 
