@@ -45,7 +45,7 @@ namespace Poker
             InitializeBetting();
         }
 
-        // ===== 初始化押注介面 =====
+        // 初始化押注介面
         private void InitializeBetting()
         {
 
@@ -60,7 +60,7 @@ namespace Poker
             UpdateBalanceDisplay();
         }
 
-        // ===== 更新畫面上的金額顯示 =====
+        // 更新畫面上的金額顯示
         private void UpdateBalanceDisplay()
         {
             lblBalance.Text = "目前金額：" + balance + " 元";
@@ -81,7 +81,7 @@ namespace Poker
 
        
 
-        // ===== 取得玩家選擇的牌型（去掉賠率說明） =====
+        //取得玩家選擇的牌型（去掉賠率說明）
         private string GetSelectedPokerType()
         {
             if (cmbPokerType.SelectedIndex < 0) return "";
@@ -89,7 +89,7 @@ namespace Poker
             return selected.Split(' ')[0]; // 取空格前的牌型名稱
         }
 
-        // ===== 結算 =====
+        //結算
         private void Settle(string resultType)
         {
             if (currentBet == 0)
@@ -114,7 +114,7 @@ namespace Poker
                 // 未押中：扣除押注金額
                 winLoss = -currentBet;
                 balance += winLoss;
-                lblWinLoss.Text = "本局輸贏：" + winLoss + " 元  實際牌型：" + resultType;
+                lblWinLoss.Text = "本局輸贏：" + winLoss + " 元 ";
             }
 
             lblBalance.Text = "目前金額：" + balance + " 元";
@@ -125,11 +125,9 @@ namespace Poker
             {
                 MessageBox.Show("你已經破產了！遊戲結束。", "Game Over");
                 balance = 1000; // 重置金額
-                lblBalance.Text = "目前金額：" + balance + " 元（已重置）";
+                lblBalance.Text = "目前金額：" + balance + " 元";
             }
         }
-
-        // ===== 以下為原本的程式碼 =====
 
         private Image GetPic(string name)
         {
