@@ -1,1 +1,115 @@
 # Poker
+
+# 🃏 Poker 押注遊戲
+
+本專案為五張牌換牌撲克遊戲，具有押注與牌型判斷功能。
+
+---
+User Interface:
+<img width="1215" height="728" alt="image" src="https://github.com/user-attachments/assets/786e243c-ddac-4849-9b0c-3bc73e26a3e7" />
+
+## 🎮 遊戲規則
+
+1. 玩家初始擁有 1000 元
+2. 發牌前須先**選擇押注牌型**並且設定**押注金額**
+3. 發牌後可選擇**翻牌換牌**（點擊想換的牌使其背面朝上）
+4. 換牌完成後按下**判斷牌型**查看結果並結算
+5. 當破產時，會自動重新設定為初始設定
+   <img width="135" height="104" alt="image" src="https://github.com/user-attachments/assets/baaeea1a-933f-4856-8906-84ecc625b6ed" />
+
+
+---
+
+## 💰 押注說明
+
+### 押注按鈕
+| 按鈕 | 功能 |
+|------|------|
+| +10  | 押注 10 元 |
+| +50  | 押注 50 元 |
+| +100 | 押注 100 元 |
+| 清除押注 | 取消本局押注 |
+
+押注圖示:
+<img width="257" height="46" alt="image" src="https://github.com/user-attachments/assets/8b8a6ae2-8706-4cd3-8d56-8e71a6ff1822" />
+
+
+### 賠率表
+| 牌型 | 賠率 |
+|------|------|
+| 同花順 | x100 |
+| 鐵支   | x50  |
+| 葫蘆   | x20  |
+| 同花   | x10  |
+| 順子   | x8   |
+| 三條   | x5   |
+| 兩對   | x3   |
+| 一對   | x2   |
+| 雜牌   | x1.5 |
+
+> 押中牌型：贏得 **押注金額 × 賠率**
+
+> 未押中牌型：損失 **押注金額**
+
+---
+
+## 🖥️ 介面說明
+
+### 牌桌區
+- 顯示玩家目前手上的 5 張牌
+- 點擊牌可翻面（換牌階段使用）
+
+牌桌區圖示:
+<img width="364" height="129" alt="image" src="https://github.com/user-attachments/assets/545fed65-5551-40ce-afc6-159927fd6d92" />
+
+
+### 功能區
+| 發牌 | 開始新的一局（發牌前須先押注)
+
+| 換牌 | 確認換牌，補入新牌
+
+| 判斷牌型 | 結算本局結果
+
+| 重新開始 | 重置所有狀態與金額回到初始值
+
+功能區圖示:
+
+<img width="598" height="74" alt="image" src="https://github.com/user-attachments/assets/b6459f85-d7c9-4262-a6c7-f6a47d6c4993" />
+
+注意事項:
+
+> 當押注金額大於目前金額，將會跳出錯誤視窗
+   <img width="127" height="103" alt="image" src="https://github.com/user-attachments/assets/eb8aecf1-7b00-4f2e-bdc9-8356e68986ce" />
+
+> 若尚未進行押注就執行發牌功能，會跳出提醒視窗
+   <img width="101" height="103" alt="image" src="https://github.com/user-attachments/assets/8c822883-700c-4aaa-95ab-ff73f179c635" />
+
+
+### 押注資訊區
+| 目前金額 | 玩家目前持有的金額 
+
+| 押注金額 | 本局已押注的金額
+
+| 本局輸贏 | 本局結算後的盈虧金額
+
+押注區圖示:
+<img width="345" height="332" alt="image" src="https://github.com/user-attachments/assets/50843adc-d0ea-44f8-ae4b-fb22cfc0157a" />
+
+
+---
+
+### 🃏 牌型說明
+| 牌型 | 賠率 |
+|------|------|
+| 同花順 | 同花色 + 連續點數
+| 鐵支   | 四張相同點數
+| 葫蘆   | 三條 + 一對
+| 同花   | 五張同花色
+| 順子   | 五張連續點數（含 A 高順 A,10,J,Q,K)
+| 三條   | 三張相同點數
+| 兩對   | 兩組不同的對子
+| 一對   | 一組對子
+| 雜牌   | 以上皆不符合
+
+---
+
