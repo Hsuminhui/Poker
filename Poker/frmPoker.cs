@@ -27,15 +27,15 @@ namespace Poker
         // 賠率表
         Dictionary<string, double> oddsTable = new Dictionary<string, double>()
         {
-            { "同花順", 100.0 },
-            { "鐵支",   50.0  },
-            { "葫蘆",   20.0  },
-            { "同花",   10.0  },
-            { "順子",    8.0  },
-            { "三條",    5.0  },
-            { "兩對",    3.0  },
-            { "一對",    2.0  },
-            { "雜牌",    1.5  },
+            {"皇家同花順", 250.0},
+            { "同花順", 50.0 },
+            { "鐵支",   25.0  },
+            { "葫蘆",   9.0  },
+            { "同花",   6.0  },
+            { "順子",    4.0  },
+            { "三條",    3.0  },
+            { "兩對",    2.0  },
+            { "一對",    1.0  }
         };
 
         public frmPoker()
@@ -287,6 +287,25 @@ namespace Poker
             return count;
         }
 
+        private bool IsRoyalFlush()
+        {
+            // 要是同一花色
+            for (int i = 0; i < 5; i++)
+            {
+
+                if (pokerColor[i] != pokerColor[0])
+                    return false;
+            }
+
+            // 點數必須是 A, 10, J, Q, K
+            int[] sorted = GetSortedPoints();
+            return sorted[0] == 0 &&
+                   sorted[1] == 9 &&
+                   sorted[2] == 10 &&
+                   sorted[3] == 11 &&
+                   sorted[4] == 12;
+        }
+
         private string GetPokerType()
         {
             int[] points = GetSortedPoints();
@@ -302,6 +321,7 @@ namespace Poker
                 else if (count[i] == 4) fourCount++;
             }
 
+            if (IsRoyalFlush()) return "皇家同花順";
             if (flush && straight) return "同花順";
             if (fourCount == 1) return "鐵支";
             if (threeCount == 1 && pairCount == 1) return "葫蘆";

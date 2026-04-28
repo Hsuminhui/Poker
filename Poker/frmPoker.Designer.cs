@@ -125,7 +125,7 @@
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(171, 38);
             this.lblBalance.TabIndex = 2;
-            this.lblBalance.Text = "目前金額:";
+            this.lblBalance.Text = "總資金:";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblBet
