@@ -57,16 +57,25 @@ User Interface:
 
 ### 功能區
 | 發牌 | 開始新的一局（發牌前須先押注)
+
 | 換牌 | 確認換牌，補入新牌
+
 | 判斷牌型 | 結算本局結果
+
 | 重新開始 | 重置所有狀態與金額回到初始值
 
 1. 當押注金額大於目前金額，將會跳出錯誤視窗
-2. 若尚未進行押注就執行發牌功能，會跳出提醒視窗
+   <img width="127" height="103" alt="image" src="https://github.com/user-attachments/assets/eb8aecf1-7b00-4f2e-bdc9-8356e68986ce" />
+
+3. 若尚未進行押注就執行發牌功能，會跳出提醒視窗
+   <img width="101" height="103" alt="image" src="https://github.com/user-attachments/assets/8c822883-700c-4aaa-95ab-ff73f179c635" />
+
 
 ### 押注資訊區
 | 目前金額 | 玩家目前持有的金額 
+
 | 押注金額 | 本局已押注的金額
+
 | 本局輸贏 | 本局結算後的盈虧金額
 
 ---
