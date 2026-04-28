@@ -73,6 +73,7 @@ User Interface:
 | 重新開始 | 重置所有狀態與金額回到初始值
 
 功能區圖示:
+
 <img width="598" height="74" alt="image" src="https://github.com/user-attachments/assets/b6459f85-d7c9-4262-a6c7-f6a47d6c4993" />
 
 注意事項:
