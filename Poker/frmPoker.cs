@@ -20,7 +20,7 @@ namespace Poker
         int[] pokerPoint = new int[5];
 
         // 押注相關變數
-        int balance = 1000;   // 目前金額
+        int balance = 1000;   // 總資金
         int currentBet = 0;   // 本局押注金額
         string selectedType = ""; // 玩家選擇押注的牌型
 
@@ -60,22 +60,55 @@ namespace Poker
             UpdateBalanceDisplay();
         }
 
+        private void ResetGame()
+        {
+            balance = 1000;
+            currentBet = 0;
+
+            lblBalance.Text = "總資金：1000 元";
+            lblBet.Text = "押注金額：0 元";
+            lblWinLoss.Text = "本局輸贏：";
+            lblResult.Text = "";
+
+            for (int i = 0; i < 5; i++)
+            {
+                pic[i].Image = GetPic("back");
+                pic[i].Tag = "back";
+                pic[i].Enabled = true;
+            }
+
+            btnDealCard.Enabled = true;
+            btnChangeCard.Enabled = false;
+            btnCheck.Enabled = false;
+
+            btnBet10.Enabled = true;
+            btnBet50.Enabled = true;
+            btnBet100.Enabled = true;
+            btnClearBet.Enabled = true;
+            cmbPokerType.Enabled = true;
+            cmbPokerType.SelectedIndex = 0;
+        }
+
         // 更新畫面上的金額顯示
         private void UpdateBalanceDisplay()
         {
-            lblBalance.Text = "目前金額：" + balance + " 元";
+            lblBalance.Text = "總資金：" + balance + " 元";
             lblBet.Text = "押注金額：" + currentBet + " 元";
             lblWinLoss.Text = "本局輸贏：";
         }
 
         private void AddBet(int amount)
         {
-            if (currentBet + amount > balance)
+            if (amount > balance)
             {
                 MessageBox.Show("押注金額超過目前餘額！", "提示");
                 return;
             }
+
+            balance -= amount;      // 押注時先扣總資金
             currentBet += amount;
+
+            lblBalance.Text = "總資金：" + balance + " 元";
             lblBet.Text = "押注金額：" + currentBet + " 元";
         }
 
@@ -99,34 +132,35 @@ namespace Poker
             }
 
             selectedType = GetSelectedPokerType();
-            int winLoss = 0;
 
             if (selectedType == resultType)
             {
-                // 押中：贏得押注 × 賠率
                 double odds = oddsTable[resultType];
-                winLoss = (int)(currentBet * odds);
-                balance += winLoss;
-                lblWinLoss.Text = "本局輸贏：+" + winLoss + " 元 🎉 押中了！";
+
+                // 因為本金已經先扣掉，所以押中時要加回：本金 + 獎金
+                int winMoney = (int)(currentBet * (odds + 1));
+
+                balance += winMoney;
+                lblWinLoss.Text = "本局輸贏：+" + winMoney + " 元 🎉 押中了！";
             }
             else
             {
-                // 未押中：扣除押注金額
-                winLoss = -currentBet;
-                balance += winLoss;
-                lblWinLoss.Text = "本局輸贏：" + winLoss + " 元 ";
+                // 已經在押注時扣過錢，這裡不要再扣
+                lblWinLoss.Text = "本局輸贏：-" + currentBet + " 元";
             }
 
-            lblBalance.Text = "目前金額：" + balance + " 元";
+            lblBalance.Text = "總資金：" + balance + " 元";
             currentBet = 0;
             lblBet.Text = "押注金額：0 元";
 
             if (balance <= 0)
             {
-                MessageBox.Show("你已經破產了！遊戲結束。", "Game Over");
-                balance = 1000; // 重置金額
-                lblBalance.Text = "目前金額：" + balance + " 元";
+                MessageBox.Show("你已經破產了！遊戲重新開始。", "Game Over");
+
+                ResetGame();   
+                return;       
             }
+       
         }
 
         private Image GetPic(string name)
@@ -162,7 +196,7 @@ namespace Poker
                 pic[i].Top = 30;
                 pic[i].Left = 10 + ((pic[i].Width + 10) * i);
                 pic[i].Visible = true;
-                pic[i].Enabled = true;
+                pic[i].Enabled = false;
                 pic[i].Tag = "back";
 
                 this.grpButton.Controls.Add(pic[i]);
@@ -378,43 +412,34 @@ namespace Poker
 
         private void btnClearBet_Click(object sender, EventArgs e)
         {
+
+            balance += currentBet;  // 退回押注金額
             currentBet = 0;
+
+            lblBalance.Text = "總資金：" + balance + " 元";
             lblBet.Text = "押注金額：0 元";
             lblWinLoss.Text = "本局輸贏：";
         }
 
         private void restart_Click(object sender, EventArgs e)
         {
-            // 重置金額
-            balance = 1000;
-            currentBet = 0;
+            ResetGame();
+        }
 
-            // 重置顯示
-            lblBalance.Text = "目前金額：1000 元";
-            lblBet.Text = "押注金額：0 元";
-            lblWinLoss.Text = "本局輸贏：";
-            lblResult.Text = "";
-
-            // 重置牌面
-            for (int i = 0; i < 5; i++)
+        private void Allin_Click(object sender, EventArgs e)
+        {
+            if (balance <= 0)
             {
-                pic[i].Image = GetPic("back");
-                pic[i].Tag = "back";
-                pic[i].Enabled = true;
+                MessageBox.Show("你沒有錢可以 All in！", "提示");
+                return;
             }
 
-            // 重置按鈕狀態
-            btnDealCard.Enabled = true;
-            btnChangeCard.Enabled = false;
-            btnCheck.Enabled = false;
+            currentBet += balance;   // 把剩下的錢全部押下去
+            balance = 0;             // 餘額歸零（這行你原本沒做）
 
-            // 重置押注控件
-            btnBet10.Enabled = true;
-            btnBet50.Enabled = true;
-            btnBet100.Enabled = true;
-            btnClearBet.Enabled = true;
-            cmbPokerType.Enabled = true;
-            cmbPokerType.SelectedIndex = 0;
+            lblBet.Text = "押注金額：" + currentBet + " 元";
+            lblBalance.Text = "總資金：0 元";
+
         }
     }
 }

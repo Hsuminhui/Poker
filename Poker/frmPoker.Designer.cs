@@ -45,13 +45,16 @@
             this.btnClearBet = new System.Windows.Forms.Button();
             this.cmbPokerType = new System.Windows.Forms.ComboBox();
             this.restart = new System.Windows.Forms.Button();
+            this.Allin = new System.Windows.Forms.Button();
             this.grpfunction.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpButton
             // 
             this.grpButton.AutoSize = true;
-            this.grpButton.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.grpButton.BackColor = System.Drawing.Color.Green;
+            this.grpButton.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.grpButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.grpButton.Location = new System.Drawing.Point(583, 580);
             this.grpButton.Name = "grpButton";
             this.grpButton.Size = new System.Drawing.Size(485, 160);
@@ -61,6 +64,7 @@
             // 
             // grpfunction
             // 
+            this.grpfunction.BackColor = System.Drawing.SystemColors.Menu;
             this.grpfunction.Controls.Add(this.lblResult);
             this.grpfunction.Controls.Add(this.btnCheck);
             this.grpfunction.Controls.Add(this.btnChangeCard);
@@ -90,7 +94,7 @@
             this.btnCheck.Location = new System.Drawing.Point(205, 37);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(125, 39);
-            this.btnCheck.TabIndex = 2;
+            this.btnCheck.TabIndex = 8;
             this.btnCheck.Text = "判斷牌型";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
@@ -102,7 +106,7 @@
             this.btnChangeCard.Location = new System.Drawing.Point(122, 37);
             this.btnChangeCard.Name = "btnChangeCard";
             this.btnChangeCard.Size = new System.Drawing.Size(77, 39);
-            this.btnChangeCard.TabIndex = 1;
+            this.btnChangeCard.TabIndex = 7;
             this.btnChangeCard.Text = "換牌";
             this.btnChangeCard.UseVisualStyleBackColor = true;
             this.btnChangeCard.Click += new System.EventHandler(this.btnChangeCard_Click);
@@ -113,7 +117,7 @@
             this.btnDealCard.Location = new System.Drawing.Point(32, 37);
             this.btnDealCard.Name = "btnDealCard";
             this.btnDealCard.Size = new System.Drawing.Size(84, 39);
-            this.btnDealCard.TabIndex = 0;
+            this.btnDealCard.TabIndex = 6;
             this.btnDealCard.Text = "發牌";
             this.btnDealCard.UseVisualStyleBackColor = true;
             this.btnDealCard.Click += new System.EventHandler(this.btnDealCard_Click);
@@ -162,10 +166,10 @@
             // 
             this.btnBet10.BackColor = System.Drawing.Color.Orange;
             this.btnBet10.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnBet10.Location = new System.Drawing.Point(1195, 378);
+            this.btnBet10.Location = new System.Drawing.Point(1143, 378);
             this.btnBet10.Name = "btnBet10";
             this.btnBet10.Size = new System.Drawing.Size(75, 44);
-            this.btnBet10.TabIndex = 6;
+            this.btnBet10.TabIndex = 2;
             this.btnBet10.Text = "10";
             this.btnBet10.UseVisualStyleBackColor = false;
             this.btnBet10.Click += new System.EventHandler(this.btnBet10_Click_1);
@@ -174,10 +178,10 @@
             // 
             this.btnBet50.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnBet50.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnBet50.Location = new System.Drawing.Point(1318, 378);
+            this.btnBet50.Location = new System.Drawing.Point(1266, 378);
             this.btnBet50.Name = "btnBet50";
             this.btnBet50.Size = new System.Drawing.Size(75, 44);
-            this.btnBet50.TabIndex = 7;
+            this.btnBet50.TabIndex = 3;
             this.btnBet50.Text = "50";
             this.btnBet50.UseVisualStyleBackColor = false;
             this.btnBet50.Click += new System.EventHandler(this.btnBet50_Click_1);
@@ -186,10 +190,10 @@
             // 
             this.btnBet100.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnBet100.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnBet100.Location = new System.Drawing.Point(1446, 378);
+            this.btnBet100.Location = new System.Drawing.Point(1390, 378);
             this.btnBet100.Name = "btnBet100";
             this.btnBet100.Size = new System.Drawing.Size(75, 44);
-            this.btnBet100.TabIndex = 8;
+            this.btnBet100.TabIndex = 4;
             this.btnBet100.Text = "100";
             this.btnBet100.UseVisualStyleBackColor = false;
             this.btnBet100.Click += new System.EventHandler(this.btnBet100_Click_1);
@@ -197,7 +201,7 @@
             // btnClearBet
             // 
             this.btnClearBet.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnClearBet.Location = new System.Drawing.Point(1214, 455);
+            this.btnClearBet.Location = new System.Drawing.Point(1213, 454);
             this.btnClearBet.Name = "btnClearBet";
             this.btnClearBet.Size = new System.Drawing.Size(120, 46);
             this.btnClearBet.TabIndex = 9;
@@ -223,18 +227,30 @@
             this.cmbPokerType.Location = new System.Drawing.Point(1339, 298);
             this.cmbPokerType.Name = "cmbPokerType";
             this.cmbPokerType.Size = new System.Drawing.Size(231, 40);
-            this.cmbPokerType.TabIndex = 10;
+            this.cmbPokerType.TabIndex = 1;
             // 
             // restart
             // 
             this.restart.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.restart.Location = new System.Drawing.Point(1367, 455);
+            this.restart.Location = new System.Drawing.Point(1403, 455);
             this.restart.Name = "restart";
             this.restart.Size = new System.Drawing.Size(127, 46);
-            this.restart.TabIndex = 11;
+            this.restart.TabIndex = 10;
             this.restart.Text = "重新開始";
             this.restart.UseVisualStyleBackColor = true;
             this.restart.Click += new System.EventHandler(this.restart_Click);
+            // 
+            // Allin
+            // 
+            this.Allin.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.Allin.Font = new System.Drawing.Font("標楷體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Allin.Location = new System.Drawing.Point(1505, 378);
+            this.Allin.Name = "Allin";
+            this.Allin.Size = new System.Drawing.Size(97, 44);
+            this.Allin.TabIndex = 5;
+            this.Allin.Text = "All in";
+            this.Allin.UseVisualStyleBackColor = false;
+            this.Allin.Click += new System.EventHandler(this.Allin_Click);
             // 
             // frmPoker
             // 
@@ -243,6 +259,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1624, 940);
+            this.Controls.Add(this.Allin);
             this.Controls.Add(this.restart);
             this.Controls.Add(this.cmbPokerType);
             this.Controls.Add(this.btnClearBet);
@@ -283,6 +300,7 @@
         private System.Windows.Forms.Button btnClearBet;
         private System.Windows.Forms.ComboBox cmbPokerType;
         private System.Windows.Forms.Button restart;
+        private System.Windows.Forms.Button Allin;
     }
 }
 
